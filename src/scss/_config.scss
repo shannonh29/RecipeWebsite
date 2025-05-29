@@ -1,0 +1,9 @@
+@mixin textStyle($font-size) {
+    font-family: "Inria Serif";
+    font-size: $font-size;
+}
+
+@mixin setSize($height, $width) {
+    height: $height;
+    width: $width;
+}

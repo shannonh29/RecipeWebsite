@@ -1,0 +1,109 @@
+@import 'variables';
+@import 'config';
+
+body {
+    background: $background_color;
+    margin: 0;
+    padding: 0;
+}
+
+.App-header{
+    @include setSize(120px, 100%);
+    background: $top_color;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Title {
+    position: absolute;
+    color: $white;
+    @include textStyle(48px);
+    font-weight: 375;
+    left: 46px;
+}
+
+.SignUp {
+    @include setSize(42px, 152px);
+    background: $white;
+    border-radius: 7px;
+    border: 0;
+    @include textStyle(13px);
+
+    position: absolute;
+    right: 46px;
+
+    &:hover {
+        background: $gray;
+    }
+}
+
+.Menu {
+    background: $white;
+    @include setSize(fit-content, 443px);
+    padding: 8px;
+    margin-top: 20px;
+    margin-left: 150px;
+    border-radius: 5px;
+}
+
+.RecipeList {
+    font-family: "Inria Serif";
+    padding-left: 25px;
+}
+
+.Line {
+    height: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: $gray;
+}
+
+.Item {
+    margin-right: 20px;
+    @include setSize(fit-content, 443px);
+    height: fit-content;
+    display: flex;
+}
+
+.MainContent {
+    display: flex;
+    gap: 220px;
+}
+
+.Options {
+    display: flex;
+    flex-direction: column;
+    gap: 33px;
+    margin-top: 30px;
+}
+
+.Option {
+    @include setSize(114px, 443px);
+    border-radius: 15px;
+    border: 0;
+    background-color: $button_color;
+
+    @include textStyle(48px);
+    font-weight: 380;
+
+    &:hover {
+        background-color: $gray;
+    }
+}
+
+.Default {
+    margin-left: 120px;
+}
+
+.modal {
+    position: fixed;
+    top: 17%;
+    left: 17%;
+    height: 400px;
+    width: 1000px;
+    padding-left: 40px;
+    padding-top: 20px;
+    background-color: $white;
+}

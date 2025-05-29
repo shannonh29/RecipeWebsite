@@ -1,7 +1,7 @@
 {
   "name": "recipe_website",
   "version": "0.1.0",
-  "homepage": "https://shannonh29.github.io/ReacipeWebsite",
+  "homepage": "https://shannonh29.github.io/RecipeWebsite",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",

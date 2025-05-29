@@ -1,0 +1,114 @@
+body {
+  background: #cfcbe6;
+  margin: 0;
+  padding: 0;
+}
+
+.App-header {
+  height: 120px;
+  width: 100%;
+  background: #6C69BD;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Title {
+  position: absolute;
+  color: #FFFFFF;
+  font-family: "Inria Serif";
+  font-size: 48px;
+  font-weight: 375;
+  left: 46px;
+}
+
+.SignUp {
+  height: 42px;
+  width: 152px;
+  background: #FFFFFF;
+  border-radius: 7px;
+  border: 0;
+  font-family: "Inria Serif";
+  font-size: 13px;
+  position: absolute;
+  right: 46px;
+}
+.SignUp:hover {
+  background: #D9D9D9;
+}
+
+.Menu {
+  background: #FFFFFF;
+  height: fit-content;
+  width: 443px;
+  padding: 8px;
+  margin-top: 20px;
+  margin-left: 150px;
+  border-radius: 5px;
+}
+
+.RecipeList {
+  font-family: "Inria Serif";
+  padding-left: 25px;
+}
+
+.Line {
+  height: 1px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background: #D9D9D9;
+}
+
+.Item {
+  margin-right: 20px;
+  height: fit-content;
+  width: 443px;
+  height: fit-content;
+  display: flex;
+}
+
+.MainContent {
+  display: flex;
+  gap: 220px;
+}
+
+.Options {
+  display: flex;
+  flex-direction: column;
+  gap: 33px;
+  margin-top: 30px;
+}
+
+.Option {
+  height: 114px;
+  width: 443px;
+  border-radius: 15px;
+  border: 0;
+  background-color: #FBFBFB;
+  font-family: "Inria Serif";
+  font-size: 48px;
+  font-weight: 380;
+}
+.Option:hover {
+  background-color: #D9D9D9;
+}
+
+.Default {
+  margin-left: 120px;
+}
+
+.modal {
+  position: fixed;
+  top: 17%;
+  left: 17%;
+  height: 400px;
+  width: 1000px;
+  padding-left: 40px;
+  padding-top: 20px;
+  background-color: #FFFFFF;
+}
+
+.background {
+  backdrop-filter: blur(8px);
+}/*# sourceMappingURL=App.css.map */
