@@ -81,7 +81,7 @@ body {
 }
 
 .Option {
-  height: 114px;
+  height: 100px;
   width: 443px;
   border-radius: 15px;
   border: 0;
@@ -100,15 +100,44 @@ body {
 
 .modal {
   position: fixed;
-  top: 17%;
-  left: 17%;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
   height: 400px;
-  width: 1000px;
+  width: 800px;
   padding-left: 40px;
   padding-top: 20px;
-  background-color: #FFFFFF;
+  background-color: #56545e;
+  border-radius: 10px;
 }
 
-.background {
-  backdrop-filter: blur(8px);
+.SignUpTitle {
+  text-align: center;
+  font-family: "Inria Serif";
+  font-size: 40px;
+}
+
+.SignUpForm {
+  display: flex;
+  flex-direction: column;
+  padding-right: 40px;
+  gap: 20px;
+}
+
+.submit {
+  height: 30px;
+  width: 200px;
+  margin: auto;
+  border-radius: 7px;
+  border: 0;
+}
+
+.field {
+  height: 30px;
+  width: 400px;
+  margin: auto;
+}
+
+.NotYet {
+  text-align: center;
 }/*# sourceMappingURL=App.css.map */

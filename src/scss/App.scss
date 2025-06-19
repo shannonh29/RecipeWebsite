@@ -80,7 +80,7 @@ body {
 }
 
 .Option {
-    @include setSize(114px, 443px);
+    @include setSize(100px, 443px);
     border-radius: 15px;
     border: 0;
     background-color: $button_color;
@@ -99,11 +99,40 @@ body {
 
 .modal {
     position: fixed;
-    top: 17%;
-    left: 17%;
-    height: 400px;
-    width: 1000px;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    @include setSize(400px, 800px);
     padding-left: 40px;
     padding-top: 20px;
-    background-color: $white;
+    background-color: $dark_gray;
+    border-radius: 10px;
+}
+
+.SignUpTitle {
+    text-align: center;
+    @include textStyle(40px);
+}
+
+.SignUpForm {
+    display: flex;
+    flex-direction: column;
+    padding-right: 40px;
+    gap: 20px;
+}
+
+.submit {
+    @include setSize(30px, 200px);
+    margin: auto;
+    border-radius: 7px;
+    border: 0;
+}
+
+.field {
+    @include setSize(30px, 400px);
+    margin: auto;
+}
+
+.NotYet {
+    text-align: center;
 }

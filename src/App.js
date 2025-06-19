@@ -6,12 +6,36 @@ import './css/App.css';
 function App() {
   const [showModal, setShowModal] = useState(false);
 
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+    const email = e.target[0].value;
+    const password = e.target[1].value;
+    try {
+      const res = await fetch('http://localhost:5001/api/login', {
+        method: 'POST',
+        mode: 'cors',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ email, password })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        alert('Login successful!');
+        setShowModal(false);
+      } else {
+        alert(data.error || 'Login failed');
+      }
+    } catch (err) {
+      alert('Network error');
+      alert(err);
+    }
+  };
+
   return (
     <div className="App">
       <div className="App-header">
         <h1 className="inria-serif-light Title">Recipes</h1>
         <button className="SignUp" onClick={() => setShowModal(true)}>
-          sign up/register
+          sign in/register
         </button>
       </div>
 
@@ -42,12 +66,15 @@ function App() {
       {showModal && (
         <div className='modal'>
           <div className='modal-content'>
-            <span className='close' onClick={() => setShowModal(false)}>&times;</span>
-            <h2>SignUp</h2>
-            <form>
-              <input type="email" placeholder="Email"/>
-              <input type="password" placeholder="Password" />
-              <button type="submit">Sign Up</button>
+            <span className='close' style={{cursor: 'pointer'}} onClick={() => setShowModal(false)}>&times;</span>
+            <h2 className="SignUpTitle">Sign In</h2>
+            <form className='SignUpForm' onSubmit={handleSignIn}>
+              <input type="email" className='field' placeholder="Email"/>
+              <input type="password" className='field' placeholder="Password" />
+              <div className='NotYet'>
+                Not Yet Registered? <a>Sign Up Now</a>
+              </div>
+              <button type="submit" className='submit'>Sign In</button>
             </form>
           </div>
         </div>
