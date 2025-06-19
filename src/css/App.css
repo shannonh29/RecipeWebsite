@@ -4,7 +4,7 @@ body {
   padding: 0;
 }
 
-.App-header {
+header {
   height: 120px;
   width: 100%;
   background: #6C69BD;
@@ -13,17 +13,7 @@ body {
   align-items: center;
   justify-content: center;
 }
-
-.Title {
-  position: absolute;
-  color: #FFFFFF;
-  font-family: "Inria Serif";
-  font-size: 48px;
-  font-weight: 375;
-  left: 46px;
-}
-
-.SignUp {
+header .SignInRegister_Button {
   height: 42px;
   width: 152px;
   background: #FFFFFF;
@@ -34,11 +24,23 @@ body {
   position: absolute;
   right: 46px;
 }
-.SignUp:hover {
+header .SignInRegister_Button:hover {
   background: #D9D9D9;
 }
+header .Title {
+  position: absolute;
+  color: #FFFFFF;
+  font-family: "Inria Serif";
+  font-size: 48px;
+  font-weight: 375;
+  left: 46px;
+}
 
-.Menu {
+.MainContent {
+  display: flex;
+  gap: 220px;
+}
+.MainContent .Menu {
   background: #FFFFFF;
   height: fit-content;
   width: 443px;
@@ -47,40 +49,33 @@ body {
   margin-left: 150px;
   border-radius: 5px;
 }
-
-.RecipeList {
+.MainContent .Menu .RecipeList {
   font-family: "Inria Serif";
   padding-left: 25px;
 }
-
-.Line {
+.MainContent .Menu .Line {
   height: 1px;
   margin-left: 10px;
   margin-right: 10px;
   background: #D9D9D9;
 }
-
-.Item {
+.MainContent .Menu .Default {
+  margin-left: 120px;
+}
+.MainContent .Menu .Item {
   margin-right: 20px;
   height: fit-content;
   width: 443px;
   height: fit-content;
   display: flex;
 }
-
-.MainContent {
-  display: flex;
-  gap: 220px;
-}
-
-.Options {
+.MainContent .Options {
   display: flex;
   flex-direction: column;
   gap: 33px;
   margin-top: 30px;
 }
-
-.Option {
+.MainContent .Options .Option {
   height: 100px;
   width: 443px;
   border-radius: 15px;
@@ -90,12 +85,8 @@ body {
   font-size: 48px;
   font-weight: 380;
 }
-.Option:hover {
+.MainContent .Options .Option:hover {
   background-color: #D9D9D9;
-}
-
-.Default {
-  margin-left: 120px;
 }
 
 .modal {
@@ -110,34 +101,29 @@ body {
   background-color: #56545e;
   border-radius: 10px;
 }
-
-.SignUpTitle {
+.modal .SignTitle {
   text-align: center;
   font-family: "Inria Serif";
   font-size: 40px;
 }
-
-.SignUpForm {
+.modal .SignInForm {
   display: flex;
   flex-direction: column;
   padding-right: 40px;
   gap: 20px;
 }
-
-.submit {
+.modal .NotYetReg {
+  text-align: center;
+}
+.modal .submit {
   height: 30px;
   width: 200px;
   margin: auto;
   border-radius: 7px;
   border: 0;
 }
-
-.field {
+.modal .field {
   height: 30px;
   width: 400px;
   margin: auto;
-}
-
-.NotYet {
-  text-align: center;
 }/*# sourceMappingURL=App.css.map */

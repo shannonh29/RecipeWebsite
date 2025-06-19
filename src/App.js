@@ -32,12 +32,12 @@ function App() {
 
   return (
     <div className="App">
-      <div className="App-header">
+      <header>
         <h1 className="inria-serif-light Title">Recipes</h1>
-        <button className="SignUp" onClick={() => setShowModal(true)}>
+        <button className="SignInRegister_Button" onClick={() => setShowModal(true)}>
           sign in/register
         </button>
-      </div>
+      </header>
 
       <div className="MainContent">
         <div className="Menu">
@@ -51,7 +51,6 @@ function App() {
               <h4 className="RecipeName"></h4>
               <h5 className="Description"></h5>
             </div> */}
-
           </div>
         </div>
 
@@ -65,18 +64,16 @@ function App() {
 
       {showModal && (
         <div className='modal'>
-          <div className='modal-content'>
-            <span className='close' style={{cursor: 'pointer'}} onClick={() => setShowModal(false)}>&times;</span>
-            <h2 className="SignUpTitle">Sign In</h2>
-            <form className='SignUpForm' onSubmit={handleSignIn}>
-              <input type="email" className='field' placeholder="Email"/>
-              <input type="password" className='field' placeholder="Password" />
-              <div className='NotYet'>
-                Not Yet Registered? <a>Sign Up Now</a>
-              </div>
-              <button type="submit" className='submit'>Sign In</button>
-            </form>
-          </div>
+          <span className='close' style={{cursor: 'pointer'}} onClick={() => setShowModal(false)}>&times;</span>
+          <h2 className="SignTitle">Sign In</h2>
+          <form className='SignInForm' onSubmit={handleSignIn}>
+            <input type="email" className='field' placeholder="Email"/>
+            <input type="password" className='field' placeholder="Password" />
+            <div className='NotYetReg'>
+              Not Yet Registered? <a>Sign Up Now</a>
+            </div>
+            <button type="submit" className='submit'>Sign In</button>
+          </form>
         </div>
       )}
     </div>

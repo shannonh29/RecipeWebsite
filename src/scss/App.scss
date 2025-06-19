@@ -7,94 +7,94 @@ body {
     padding: 0;
 }
 
-.App-header{
+header{
     @include setSize(120px, 100%);
     background: $top_color;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-}
 
-.Title {
-    position: absolute;
-    color: $white;
-    @include textStyle(48px);
-    font-weight: 375;
-    left: 46px;
-}
+    .SignInRegister_Button {
+        @include setSize(42px, 152px);
+        background: $white;
+        border-radius: 7px;
+        border: 0;
+        @include textStyle(13px);
 
-.SignUp {
-    @include setSize(42px, 152px);
-    background: $white;
-    border-radius: 7px;
-    border: 0;
-    @include textStyle(13px);
+        position: absolute;
+        right: 46px;
 
-    position: absolute;
-    right: 46px;
-
-    &:hover {
-        background: $gray;
+        &:hover {
+            background: $gray;
+        }
     }
-}
 
-.Menu {
-    background: $white;
-    @include setSize(fit-content, 443px);
-    padding: 8px;
-    margin-top: 20px;
-    margin-left: 150px;
-    border-radius: 5px;
-}
-
-.RecipeList {
-    font-family: "Inria Serif";
-    padding-left: 25px;
-}
-
-.Line {
-    height: 1px;
-    margin-left: 10px;
-    margin-right: 10px;
-    background: $gray;
-}
-
-.Item {
-    margin-right: 20px;
-    @include setSize(fit-content, 443px);
-    height: fit-content;
-    display: flex;
+    .Title {
+        position: absolute;
+        color: $white;
+        @include textStyle(48px);
+        font-weight: 375;
+        left: 46px;
+    }
 }
 
 .MainContent {
     display: flex;
     gap: 220px;
-}
 
-.Options {
-    display: flex;
-    flex-direction: column;
-    gap: 33px;
-    margin-top: 30px;
-}
+    .Menu {
+        background: $white;
+        @include setSize(fit-content, 443px);
+        padding: 8px;
+        margin-top: 20px;
+        margin-left: 150px;
+        border-radius: 5px;
 
-.Option {
-    @include setSize(100px, 443px);
-    border-radius: 15px;
-    border: 0;
-    background-color: $button_color;
+        .RecipeList {
+            font-family: "Inria Serif";
+            padding-left: 25px;
+        }
+        
+        .Line {
+            height: 1px;
+            margin-left: 10px;
+            margin-right: 10px;
+            background: $gray;
+        }
 
-    @include textStyle(48px);
-    font-weight: 380;
+        .Default {
+            margin-left: 120px;
+        }
 
-    &:hover {
-        background-color: $gray;
+        .Item {
+            margin-right: 20px;
+            @include setSize(fit-content, 443px);
+            height: fit-content;
+            display: flex;
+        }
     }
-}
 
-.Default {
-    margin-left: 120px;
+    .Options {
+        display: flex;
+        flex-direction: column;
+        gap: 33px;
+        margin-top: 30px;
+
+        .Option {
+            @include setSize(100px, 443px);
+            border-radius: 15px;
+            border: 0;
+            background-color: $button_color;
+
+            @include textStyle(48px);
+            font-weight: 380;
+
+            &:hover {
+                background-color: $gray;
+            }
+        }
+    }
 }
 
 .modal {
@@ -107,32 +107,32 @@ body {
     padding-top: 20px;
     background-color: $dark_gray;
     border-radius: 10px;
-}
+    .SignTitle {
+        text-align: center;
+        @include textStyle(40px);
+    }
 
-.SignUpTitle {
-    text-align: center;
-    @include textStyle(40px);
-}
+    .SignInForm {
+        display: flex;
+        flex-direction: column;
+        padding-right: 40px;
+        gap: 20px;
+    }
 
-.SignUpForm {
-    display: flex;
-    flex-direction: column;
-    padding-right: 40px;
-    gap: 20px;
-}
+    .NotYetReg {
+        text-align: center;
+    }
 
-.submit {
-    @include setSize(30px, 200px);
-    margin: auto;
-    border-radius: 7px;
-    border: 0;
-}
+    .submit {
+        @include setSize(30px, 200px);
+        margin: auto;
+        border-radius: 7px;
+        border: 0;
+    }
 
-.field {
-    @include setSize(30px, 400px);
-    margin: auto;
-}
+    .field {
+        @include setSize(30px, 400px);
+        margin: auto;
+    }
 
-.NotYet {
-    text-align: center;
 }
