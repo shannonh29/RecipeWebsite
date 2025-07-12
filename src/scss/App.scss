@@ -5,6 +5,8 @@ body {
     background: $background_color;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 header{
@@ -36,20 +38,39 @@ header{
         @include textStyle(48px);
         font-weight: 375;
         left: 46px;
+        text-decoration: none;
+
+        @media only screen and (max-width: 425px) {
+            @include textStyle(38px);
+        }
     }
 }
 
 .MainContent {
     display: flex;
-    gap: 220px;
+    justify-content: center;
+
+    @media only screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
     .Menu {
         background: $white;
         @include setSize(fit-content, 443px);
         padding: 8px;
         margin-top: 20px;
-        margin-left: 150px;
         border-radius: 5px;
+        margin-left: 10px;
+
+        @media only screen and (max-width: 1024px) and (min-width: 767px) {
+            @include setSize(fit-content, 400px);
+        }
+
+        @media only screen and (max-width: 768px) {
+            @include setSize(fit-content, 300px);
+        }
 
         .RecipeList {
             font-family: "Inria Serif";
@@ -64,7 +85,7 @@ header{
         }
 
         .Default {
-            margin-left: 120px;
+            margin-left: 25px;
         }
 
         .Item {
@@ -78,8 +99,29 @@ header{
     .Options {
         display: flex;
         flex-direction: column;
+
         gap: 33px;
         margin-top: 30px;
+        margin-left: 10vh;
+
+        @media only screen and (max-width: 1024px) and (min-width: 768px) {
+            margin-left: 7vh;
+        }
+
+        @media only screen and (max-width: 768px){
+            margin-left: 0px;
+            flex-direction: row;
+            gap: 8px;
+        }
+
+        @media only screen and (max-width: 768px) and (min-width: 426px) {
+            gap: 6px;
+        }
+
+        @media only screen and (max-width: 425px) {
+            gap: 6px;
+            flex-direction: column;
+        }
 
         .Option {
             @include setSize(100px, 443px);
@@ -87,8 +129,30 @@ header{
             border: 0;
             background-color: $button_color;
 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
             @include textStyle(48px);
             font-weight: 380;
+            text-decoration: none;
+            color: $black;
+
+            @media only screen and (max-width: 1024px) and (min-width: 768px) {
+                @include setSize(90px, 300px);
+                @include textStyle(35px);
+            }
+
+            @media only screen and (max-width: 768px) and (min-width: 426px) {
+                @include setSize(40px, 90px);
+                @include textStyle(15px);
+            }
+
+            @media only screen and (max-width: 425px) {
+                @include setSize(50px, 300px);
+                @include textStyle(15px);
+            }
 
             &:hover {
                 background-color: $gray;
@@ -105,22 +169,36 @@ header{
     @include setSize(400px, 800px);
     padding-left: 40px;
     padding-top: 20px;
-    background-color: $dark_gray;
+    background-color: $dark_purple;
     border-radius: 10px;
-    .SignTitle {
+
+    .ModalTitle {
         text-align: center;
         @include textStyle(40px);
+        color: $light_gray;
     }
 
-    .SignInForm {
+    .ModalForm {
         display: flex;
         flex-direction: column;
         padding-right: 40px;
         gap: 20px;
     }
 
-    .NotYetReg {
+    .SwitchModal {
         text-align: center;
+        @include textStyle(15px);
+        color: $light_gray;
+
+        .ChangeModal {
+            background: none;
+            border: 0px;
+            padding: 0px;
+            @include textStyle(15px);
+            color: #007be5;
+            cursor: pointer;
+            text-decoration-line: underline;
+        }
     }
 
     .submit {
@@ -128,11 +206,19 @@ header{
         margin: auto;
         border-radius: 7px;
         border: 0;
+        cursor: pointer;
     }
 
     .field {
         @include setSize(30px, 400px);
         margin: auto;
+    }
+
+    .close {
+        font-size: 40px;
+        position: absolute;
+        color: $light_gray;
+        cursor: pointer;
     }
 
 }
