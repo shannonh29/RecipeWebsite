@@ -7,16 +7,67 @@
     border-radius: 15px;
     margin: 20px;
     border: none;
-    padding: 20px;
-}
+    padding: 30px 50px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 
-label {
-    font-size: 15px;
-    display: block;
-    width: 100%;
-    margin-top: 8px;
-    margin-bottom: 5px;
-    text-align: left;
-    color: #555;
-    font-weight: bold;
+    @media only screen and (max-width: 768px) and (min-width: 426px)  {
+        @include setSize(fit-content, 350px);
+    }
+
+    @media only screen and (max-width: 425px) {
+        @include setSize(fit-content, 250px);
+    }
+
+
+    .close {
+        font-size: 40px;
+        color: $black;
+        cursor: pointer;
+        margin-left: auto;
+    }
+
+    label {
+        @include textStyle(15px);
+        width: 100%;
+        margin-top: 8px;
+        margin-bottom: 5px;
+        text-align: left;
+        color: #555;
+        font-weight: bold;
+        display: flex;
+
+        &#RecipeName {
+            margin-top: -15px;
+        }
+    }
+
+    input {
+        width: 100%;
+        border: 0px;
+        background-color: $light-gray;
+        border-radius: 10px;
+        height: 28px;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    textarea {
+        width: 100%;
+        border: 0px;
+        background-color: $light-gray;
+        height: 118px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    button[type="submit"] {
+        margin-top: 20px;
+        @include setSize(40px, 77px);
+        background-color: $black;
+        color: $white;
+        border-radius: 8px;
+    }
 }

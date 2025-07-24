@@ -5,16 +5,66 @@
   border-radius: 15px;
   margin: 20px;
   border: none;
-  padding: 20px;
+  padding: 30px 50px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
-
-label {
+@media only screen and (max-width: 768px) and (min-width: 426px) {
+  .Main_Content {
+    height: fit-content;
+    width: 350px;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .Main_Content {
+    height: fit-content;
+    width: 250px;
+  }
+}
+.Main_Content .close {
+  font-size: 40px;
+  color: #000000;
+  cursor: pointer;
+  margin-left: auto;
+}
+.Main_Content label {
+  font-family: "Inria Serif";
   font-size: 15px;
-  display: block;
   width: 100%;
   margin-top: 8px;
   margin-bottom: 5px;
   text-align: left;
   color: #555;
   font-weight: bold;
+  display: flex;
+}
+.Main_Content label#RecipeName {
+  margin-top: -15px;
+}
+.Main_Content input {
+  width: 100%;
+  border: 0px;
+  background-color: #D3D3D3;
+  border-radius: 10px;
+  height: 28px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.Main_Content textarea {
+  width: 100%;
+  border: 0px;
+  background-color: #D3D3D3;
+  height: 118px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.Main_Content button[type=submit] {
+  margin-top: 20px;
+  height: 40px;
+  width: 77px;
+  background-color: #000000;
+  color: #FFFFFF;
+  border-radius: 8px;
 }/*# sourceMappingURL=NewRecipe.css.map */
