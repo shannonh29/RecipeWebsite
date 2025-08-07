@@ -1,5 +1,6 @@
 import './css/NewRecipe.css';
 import { React, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function NewRecipe() {
     const [name, setName] = useState("");
@@ -7,21 +8,64 @@ function NewRecipe() {
     const [ingredients, setIngredients] = useState("");
     const [directions, setDirections] = useState("");
 
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Recipe Name: ", name);
-        if(author) {
-            console.log("Author: ", author);
+    function getUserIdFromToken() {
+        const token = localStorage.getItem('token');
+        if(!token) return null;
+        try {
+            // decodes the token
+            return JSON.parse(atob(token.split('.')[1])).userId;
+        } catch {
+            return null;
         }
-        console.log("Ingredients: ", ingredients);
-        console.log("Directions: ", directions);
+    }
+
+    const handleSubmit = async (e) => {
+
+        //prevents a possible quick refresh that might automatically happen
+        e.preventDefault();
+
+        const userId = getUserIdFromToken();
+
+        if(!userId) {
+            alert("You must be logged in to add a recipe");
+            return;
+        }
+
+        // create a recipe object
+        const recipe = {
+            name,
+            author,
+            ingredients,
+            directions,
+            userId
+        };
+
+        try {
+            const res = await fetch('http://localhost:5001/api/recipes', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(recipe)
+            });
+
+            if(res.ok) {
+                alert('Recipe added!');
+            } else {
+                const data = await res.json();
+                alert(data.error || 'Failed to add recipe.');
+            }
+        } catch(err) {
+            alert('Network error');
+        }
     };
 
 
     return (
         <fieldset className="Main_Content">
-            <span className='close'>&times;</span>
+            <span 
+                className='close'
+                onClick={() => navigate('/RecipeWebsite')}>&times;</span>
             <form onSubmit={handleSubmit}>
                 <label for="name" id="RecipeName">Recipe Name*</label>
                 <input 

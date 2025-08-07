@@ -1,14 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import star from './star.png';
 import './css/App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import NewRecipe from './NewRecipe';
 
+function getUserIdFromToken() {
+  const token = localStorage.getItem('token');
+  if(!token) return null;
+  try {
+    return JSON.parse(atob(token.split('.')[1])).userId;
+  } catch {
+    return null;
+  }
+}
 
 function App() {
   const [showSignInModal, setShowSignInModal] = useState(false);
   const [showRegisterModal, setShowRegisterModal] = useState(false);
   const [isSignedIn, setIsSignedIn] = useState(false);
+  const [recipes, setRecipes]= useState([]);
+  
+  useEffect(() => {
+    if(isSignedIn) {
+      const userId = getUserIdFromToken();
+      if(userId) {
+        console.log("Correct");
+        fetch(`http://localhost:5001/api/recipes?userId=${userId}`)
+          .then(res=>res.json()) // when the server responds, this line converts the response into JSON
+          .then(data => setRecipes(data)) // the line updates the react state with new data
+          .catch(() => setRecipes([])); // if there is any error, this sets the recipes to an empty array
+      }
+    } else {
+      setRecipes([]);
+    }
+  }, [isSignedIn, showSignInModal, showRegisterModal]);
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -24,6 +49,7 @@ function App() {
       const data = await res.json();
       if (res.ok) {
         alert('Login successful!');
+        localStorage.setItem('token', data.token); // saving the token from the backend into localStorage
         setShowSignInModal(false);
         setIsSignedIn(true);
       } else {
@@ -94,10 +120,24 @@ function App() {
                   <h3 className="RecipeList">Recipe List</h3>
                   <div className="Line"></div>
                   <div className="Item">
-                    <p className="Default">
+                    {isSignedIn ? (
+                      recipes.length > 0 ? (
+                        recipes.map(recipe => (
+                          <div className='Content' key={recipe._id}>
+                            <h4 className="RecipeName">{recipe.name}</h4>
+                            {/*<h5 className="Description">{recipe.author}</h5>*/}
+                          </div>
+                        ))
+                      ) : (
+                        <p className="Default">No Recipes Yet! </p>
+                      )
+                    ) : (
+                      <p className="Default">Please Sign In/Register to Begin</p>
+                    )}
+                    {/*<p className="Default">
                       {isSignedIn ? "No Recipes Yet!" : "Please Sign In/Register to Begin"}
                     </p>
-                    {/* <img className='star' src={star} alt="star"></img>
+                    <img className='star' src={star} alt="star"></img>
                     <div className='Content'>
                       <h4 className="RecipeName"></h4>
                       <h5 className="Description"></h5>
@@ -115,12 +155,6 @@ function App() {
             } />
             <Route path="/new-recipe" element={<NewRecipe />}/>
           </Routes>
-          {/* <div className="Options">
-            <a className='Option'>Random Pick</a>
-            <a className='Option'>Search</a>
-            <a className='Option' href="/new-recipe">New Recipe</a>
-            <a className='Option'>Settings</a>
-          </div> */}
         </div>
 
         {showSignInModal && (
